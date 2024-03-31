@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Online-BookStore API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About Project
 
-## About Laravel
+This project is a Laravel-based Online-BookStore API that includes user authentication with Laravel Passport and basic CRUD functionalities for managing users and Books.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Installation.
+- Authentication.
+- API Endpoints.
+  Books
+  Cart Item
+  Orders
+- Add To Cart
+- Checkout
+- Usage
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+1. Clone the repository:
+   git clone AhmedAbdulsalam7/Online-BookStore
+2. cd Online-BookStore
+3. Install dependencies:
+   composer install
+4. Set up your environment file:
+   you need include SECRET_KEY in .env file, tou can generate secret key using openssl rand -base64 32 also you need (cp .env.example .env)
+5. create database like mysql or postgreSQL then create user for the database and grant all Privilege
+6. after create database you should fill the the info of connection atribute in .env file
+7. php artisan passport:install
+8. run php artisan serve
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Authentication
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+To use the API, you need to register and authenticate with Laravel Passport.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Registration Endpoint:
 
-## Laravel Sponsors
+POST http://127.0.0.1:8000/api/register
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Login Endpoint:
 
-### Premium Partners
+POST http://127.0.0.1:8000/api/login
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## API Endpoints
 
-## Contributing
+### Books
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Show All Books
 
-## Code of Conduct
+GET http://127.0.0.1:8000/api/books
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+#### Get Book by ID:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+GET http://127.0.0.1:8000/api/books/2
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Create Book:
+
+POST http://127.0.0.1:8000/api/books
+
+
+#### Update Book:
+
+PUT http://127.0.0.1:8000/api/books/1
+
+
+#### Delete Book:
+
+DELETE http://127.0.0.1:8000/api/books/3
+
+
+## Usage
+
+Register a user using the /api/register endpoint.
+
+Login to obtain an access token using the /api/login endpoint.
+
+Use the obtained access token to authenticate requests to protected endpoints.
+
+Explore and interact with the API using the provided CRUD endpoints.
+
