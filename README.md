@@ -70,6 +70,35 @@ PUT http://127.0.0.1:8000/api/books/1
 
 DELETE http://127.0.0.1:8000/api/books/3
 
+### Cart-Item
+
+#### Get Cart-Item:
+
+GET http://127.0.0.1:8000/api/cart-items
+
+#### Get Cart-Item By Id:
+
+GET http://127.0.0.1:8000/api/cart-items/6
+
+#### Delete Cart-Item:
+
+DELETE http://127.0.0.1:8000/api/cart-items/6
+
+### Orders
+
+#### Checkout:
+
+POST http://127.0.0.1:8000/api/checkout
+
+#### Get User Order:
+
+GET http://127.0.0.1:8000/api/orders
+
+### Add To Cart:
+
+#### Add-To-Cart
+
+POST http://127.0.0.1:8000/api/cart/add-to-cart
 
 ## Usage
 
